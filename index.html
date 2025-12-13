@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
     <!-- nav bar -->
-    <nav class="bg-white  w-full z-20 top-0 start-0 border-b border-default fixed">
+    <nav class="bg-white w-full z-20 top-0 start-0 border-b border-default fixed  dark:text-white dark:bg-black">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-start gap-8 p-6">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <svg fill="none" height="48" viewBox="0 0 38 48" width="38" xmlns="http://www.w3.org/2000/svg"
                     class="h-7">
                     <path clip-rule="evenodd"
@@ -20,9 +22,10 @@
                         fill="#0A0D12" fill-rule="evenodd" />
                 </svg>
             </a>
-            <button data-collapse-toggle="navbar-default" type="button"
+            <!-- TODO: make dropdown menu appear below not inline with navbar looks ugly -->
+            <button data-collapse-toggle="navbar-default" type="button" onclick="toggleDropdown('navbar-default')"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-                aria-controls="navbar-default" aria-expanded="false">
+                aria-controls="navbar-default" aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     fill="none" viewBox="0 0 24 24">
@@ -32,29 +35,36 @@
             <div class="hidden md:block md:w-auto" id="navbar-default">
                 <ul
                     class=" font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary md:justify-start">
-                    <li><a href="/fairs.html"
+                    <li><a target="_blank" href="/fairs.html"
                             class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">FAIRS</a>
                     </li>
-                    <li><a href="/tickets.html"
+                    <li><a target="_blank" href="/tickets.html"
                             class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">TICKETS</a>
                     </li>
-                    <li><a href="/artists_apply.html"
+                    <li><a target="_blank" href="/artists_apply.html"
                             class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">ARTISTS
                             APPLY</a></li>
-                    <li><a href="/about.html"
+                    <li><a target="_blank" href="/about.html"
                             class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">ABOUT</a>
                     </li>
-                    <li><a href="/contact.html"
+                    <li><a target="_blank" href="/contact.html"
                             class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">CONTACT</a>
                     </li>
-                    <li><a href="/partner.html"
+                    <li><a target="_blank" href="/partner.html"
                             class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">PARTNER</a>
+                    </li>
+                    <li>
+                        <button onclick="toggleDarkMode()" id="dark-mode-btn"
+                            class="font-bold font-mono block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 w-full text-left">
+                            🌙 DARK MODE
+                        </button>
                     </li>
                 </ul>
             </div>
         </div>
+
     </nav>
-    
+
     <!-- main text -->
     <section class="m-10 pt-20">
         <div class="mb-10">
@@ -95,18 +105,25 @@
             </div>
         </div>
     </section>
-    <!--event sponsors -->
-    <!-- pictures of fairs: carosel-->
+    <!-- TODO: event sponsors -->
+    <div>
+
+    </div>
+    <!-- TODO: pictures of fairs: carosel-->
     <div>
 
     </div>
     <!--calender-->
     <section>
         <div style="background-image: url('newpic.png'); background-size: cover; background-position: center;"
-            class="p-5 sepia-50">
-            <h2 class="text-center text-4xl font-bold mt-20 mb-5 uppercase">2025 Fair Calender</h2>
-            <p class="text-center text-lg font-normal text-body lg:text-xl sm:px-16 xl:px-48">To access our calender,
-                please enter in your email address to recieve the Fair Calender.</p>
+            class="p-5 sepia-50 calendar-bg">
+            <h2 class="text-center text-4xl font-bold mt-20 mb-5 mx-auto uppercase">2025 Fair Calender</h2>
+            <div class="bg-white bg-opacity-50">
+                <!-- TODO: make text bg shorter on x axis-->
+                <p class="text-center text-lg font-normal text-body lg:text-xl sm:px-16 xl:px-48 ">To access our
+                    calender,
+                    please enter in your email address to recieve the Fair Calender.</p>
+            </div>
             <div>
                 <!-- email form -->
                 <form class="max-w-sm mx-auto m-8 text-center">
@@ -204,10 +221,10 @@
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
-                    <a href="/index.html" target="_blank" class="flex items-center">
+                    <a href="index.html" target="_blank" class="flex items-center">
                         <svg fill="none" height="48" viewBox="0 0 219 48" width="219"
                             xmlns="http://www.w3.org/2000/svg">
-                            <!-- placeholder logo-->
+                            <!-- free placeholder logo do not change-->
                             <g fill="#0A0D12">
                                 <path clip-rule="evenodd"
                                     d="m19 12.5c-4.1421 0-7.5-3.35786-7.5-7.5h-5c0 6.9036 5.5964 12.5 12.5 12.5s12.5-5.5964 12.5-12.5h-5c0 4.14214-3.3579 7.5-7.5 7.5zm-7.5 30.5c0-4.1421 3.3579-7.5 7.5-7.5s7.5 3.3579 7.5 7.5h5c0-6.9036-5.5964-12.5-12.5-12.5s-12.5 5.5964-12.5 12.5zm-4-19c0-4.1421-3.35786-7.5-7.5-7.5v-5c6.90356 0 12.5 5.5964 12.5 12.5s-5.59644 12.5-12.5 12.5v-5c4.14214 0 7.5-3.3579 7.5-7.5zm23 0c0-4.1421 3.3579-7.5 7.5-7.5v-5c-6.9036 0-12.5 5.5964-12.5 12.5s5.5964 12.5 12.5 12.5v-5c-4.1421 0-7.5-3.3579-7.5-7.5z"
