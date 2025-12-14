@@ -1,3 +1,5 @@
+//ajax form validation
+//let submit = document.querySelector(".custom-toast.success-toast");
 $(document).ready(function () {
     $("#submitButton").click(function (event) {
         event.preventDefault();
@@ -13,7 +15,6 @@ $(document).ready(function () {
             toastr.error('Please fill in all required fields');
             return;
         }
-        
         
         toastr.success('Application submitted successfully!');
         form[0].reset();
