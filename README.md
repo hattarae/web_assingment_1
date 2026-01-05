@@ -1,5 +1,5 @@
 # Art Fair Website | Web Development Project
-A practice website for a college assingment.
+A practice website for my university assingment.
  
 
 
